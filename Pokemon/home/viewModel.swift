@@ -1,6 +1,6 @@
 //
 //  viewModel.swift
-//  Pokemon
+//  Rick
 //
 //  Created by Gustavo Fidencio on 05/11/21.
 //
@@ -8,27 +8,33 @@
 import Foundation
 
 class ViewModel : ObservableObject {
-
-    @Published var items = [BasicPoke]()
-    let getUrl = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20"
+    
+    @Published var isLoad = true
+    @Published var items = [Character]()
+    
+    
+    let getUrl = "https://rickandmortyapi.com/api/character"
     
     func loadData(){
-        print("oi")
         guard let url = URL(string: getUrl) else { return }
         
         URLSession.shared.dataTask(with: url) {(data, res, err) in
             do{
                 if let data = data{
                     let result = try JSONDecoder().decode(Model.self, from: data)
-                    print(result)
                     DispatchQueue.main.async {
                         self.items = result.results
+                        self.isLoad = false
                     }
                 } else {
                     print("No Data")
+                    self.isLoad = false
                 }
             } catch (let error){
+                self.isLoad = false
+                print("vortemo pro catch das vida")
                 print(error.localizedDescription)
+//                self.isLoad = false
             }
         }.resume()
     }
