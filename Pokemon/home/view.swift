@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftUIFontIcon
 
 struct ContentView: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel = ViewModel()
     
     var body: some View {
@@ -20,27 +22,41 @@ struct ContentView: View {
                     List(viewModel.items, id: \.name){ item in
                         VStack{
                             HStack{
-                                AsyncImage(url: URL(string: item.image)!,
-                                   placeholder: { Text("Loading ...") },
-                                        image: {
-                                            Image(uiImage: $0)
-                                                .resizable()
+                                ZStack(alignment: .bottomTrailing){
+                                    AsyncImage(url: URL(string: item.image)!,
+                                       placeholder: { Text("Loading ...") },
+                                            image: {
+                                                Image(uiImage: $0)
+                                                    .resizable()
+                                            }
+                                    )
+                                        .cornerRadius(7.0)
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 80, height: 80, alignment: .center)
+                                    HStack{
+                                        HStack{
+                                            FontIcon.text(.awesome5Solid(code: .minus), fontsize: 12, color: Color(UIColor.systemBackground))
                                         }
-                                )
-                                    .cornerRadius(7.0)
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 80, height: 80, alignment: .center)
-                                
+                                            .padding(2)
+                                            .background(Color.green)
+                                            .cornerRadius(14.0)
+                                    }
+                                    .padding(5)
+                                    .background(colorScheme == .dark ? Color(UIColor.secondarySystemBackground):Color(UIColor.systemBackground))
+                                    .cornerRadius(14.0)
+                                    .offset(x: 3, y: 3)
+                                }
                                 VStack{
                                     Text(item.name)
                                         .lineLimit(1)
                                         .font(Font.headline.weight(.heavy))
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     HStack{
-                                        Image(systemName: "square.and.pencil")
-                                        Text(item.gender)
-                                            .lineLimit(1)
-                                            .font(Font.headline.weight(.light))
+                                        if(item.gender == "Male"){
+                                            FontIcon.text(.ionicon(code: .ios_male), color: .blue)
+                                        }else{
+                                            FontIcon.text(.ionicon(code: .ios_female), color: .pink)
+                                        }
                                         Text(item.species)
                                             .lineLimit(1)
                                             .font(Font.headline.weight(.light))

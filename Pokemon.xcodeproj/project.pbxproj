@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC066531273C067300DF66A6 /* asyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC066530273C067300DF66A6 /* asyncImage.swift */; };
+		EC066534273EAB3F00DF66A6 /* SwiftUIFontIcon in Frameworks */ = {isa = PBXBuildFile; productRef = EC066533273EAB3F00DF66A6 /* SwiftUIFontIcon */; };
 		EC681B852735ABBC00EDE026 /* PokemonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC681B842735ABBC00EDE026 /* PokemonApp.swift */; };
 		EC681B892735ABBD00EDE026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC681B882735ABBD00EDE026 /* Assets.xcassets */; };
 		EC681B8C2735ABBD00EDE026 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC681B8B2735ABBD00EDE026 /* Preview Assets.xcassets */; };
@@ -16,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC066530273C067300DF66A6 /* asyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asyncImage.swift; sourceTree = "<group>"; };
 		EC681B812735ABBC00EDE026 /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC681B842735ABBC00EDE026 /* PokemonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonApp.swift; sourceTree = "<group>"; };
 		EC681B882735ABBD00EDE026 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,12 +34,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC066534273EAB3F00DF66A6 /* SwiftUIFontIcon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC06652D273C064300DF66A6 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EC066530273C067300DF66A6 /* asyncImage.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
 		EC681B782735ABBC00EDE026 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +68,7 @@
 		EC681B832735ABBC00EDE026 /* Pokemon */ = {
 			isa = PBXGroup;
 			children = (
+				EC06652D273C064300DF66A6 /* helpers */,
 				EC681B932735AF4300EDE026 /* home */,
 				EC681B842735ABBC00EDE026 /* PokemonApp.swift */,
 				EC681B882735ABBD00EDE026 /* Assets.xcassets */,
@@ -99,6 +112,9 @@
 			dependencies = (
 			);
 			name = Pokemon;
+			packageProductDependencies = (
+				EC066533273EAB3F00DF66A6 /* SwiftUIFontIcon */,
+			);
 			productName = Pokemon;
 			productReference = EC681B812735ABBC00EDE026 /* Pokemon.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +142,9 @@
 				Base,
 			);
 			mainGroup = EC681B782735ABBC00EDE026;
+			packageReferences = (
+				EC066532273EAB3F00DF66A6 /* XCRemoteSwiftPackageReference "SwiftUIFontIcon" */,
+			);
 			productRefGroup = EC681B822735ABBC00EDE026 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC066531273C067300DF66A6 /* asyncImage.swift in Sources */,
 				EC681B952735AFE500EDE026 /* view.swift in Sources */,
 				EC681B972735B00D00EDE026 /* model.swift in Sources */,
 				EC681B992735B03100EDE026 /* viewModel.swift in Sources */,
@@ -344,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC066532273EAB3F00DF66A6 /* XCRemoteSwiftPackageReference "SwiftUIFontIcon" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huybuidac/SwiftUIFontIcon";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC066533273EAB3F00DF66A6 /* SwiftUIFontIcon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC066532273EAB3F00DF66A6 /* XCRemoteSwiftPackageReference "SwiftUIFontIcon" */;
+			productName = SwiftUIFontIcon;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC681B792735ABBC00EDE026 /* Project object */;
 }
