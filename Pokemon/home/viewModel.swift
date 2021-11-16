@@ -12,7 +12,6 @@ class ViewModel : ObservableObject {
     @Published var isLoad = true
     @Published var items = [Character]()
     
-    
     let getUrl = "https://rickandmortyapi.com/api/character"
     
     func loadData(){
@@ -34,7 +33,6 @@ class ViewModel : ObservableObject {
                 self.isLoad = false
                 print("vortemo pro catch das vida")
                 print(error.localizedDescription)
-//                self.isLoad = false
             }
         }.resume()
     }
